@@ -1,184 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - HIVEN TECHNOLOGY LIMITED</title>
-    <style>
-        /* CSS Styles */
-
+    <title>Privacy Policy - MEGANLYNN ENTERPRISE</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F9FAFB'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .text-shadow-lg {
+                text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+            }
+            .bg-gradient {
+                background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+            }
+            .transition-transform {
+                transition: transform 0.3s ease;
+            }
+            .hover-scale:hover {
+                transform: scale(1.05);
+            }
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #2c3e50;
-            color: #fff
+            font-family: 'Inter', system-ui, sans-serif;
+            scroll-behavior: smooth;
         }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: rgba(0, 0, 0, .6);
-            padding: 20px;
-            border-radius: 10px
+        
+        .hero-section {
+            background-image: url('imgs/bg.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
         }
-
-        h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 20px
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
-
-        h2 {
-            font-size: 32px;
-            margin-bottom: 20px
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
         }
-
-        h3 {
-            font-size: 24px;
-            margin-top: 30px;
-            margin-bottom: 15px
+        
+        .game-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
         }
-
-        .content {
-            max-width: 800px;
-            text-align: left;
-            margin-bottom: 40px
+        
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-
-        p {
-            margin-bottom: 15px;
-            line-height: 1.5
+        
+        .game-card img {
+            transition: transform 0.5s ease;
         }
-
-        ul {
-            margin-bottom: 15px;
-            padding-left: 20px
+        
+        .game-card:hover img {
+            transform: scale(1.1);
         }
-
-        li {
-            margin-bottom: 10px
+        
+        .nav-link {
+            position: relative;
         }
-
-        .copyright {
-            font-size: 16px;
-            margin-top: 40px
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #3B82F6;
+            transition: width 0.3s ease;
         }
-        .contact-email {
-            margin-top: 10px;
-            font-size: 16px;
+        
+        .nav-link:hover::after {
+            width: 100%;
         }
-        .contact-email a {
-            color: #fff;
-            text-decoration: none;
+        
+        .social-icon {
+            transition: all 0.3s ease;
         }
-        .back-link {
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        .back-link a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            color: #3B82F6;
         }
     </style>
 </head>
+<body class="bg-light text-dark">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary">meganlynngame</a>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#home" class="nav-link font-medium hover:text-primary transition-colors">Home</a>
+                <a href="index.html#games" class="nav-link font-medium hover:text-primary transition-colors">Games</a>
+                <a href="index.html#about" class="nav-link font-medium hover:text-primary transition-colors">About Us</a>
+                <a href="index.html#contact" class="nav-link font-medium hover:text-primary transition-colors">Contact</a>
+                <a href="terms.html" class="nav-link font-medium hover:text-primary transition-colors">Terms</a>
+                <a href="privacy.html" class="nav-link font-medium text-primary transition-colors">Privacy</a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-dark focus:outline-none">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="index.html#home" class="font-medium hover:text-primary transition-colors py-2">Home</a>
+                <a href="index.html#games" class="font-medium hover:text-primary transition-colors py-2">Games</a>
+                <a href="index.html#about" class="font-medium hover:text-primary transition-colors py-2">About Us</a>
+                <a href="index.html#contact" class="font-medium hover:text-primary transition-colors py-2">Contact</a>
+                <a href="terms.html" class="font-medium hover:text-primary transition-colors py-2">Terms</a>
+                <a href="privacy.html" class="font-medium text-primary transition-colors py-2">Privacy</a>
+            </div>
+        </div>
+    </nav>
 
-<body>
-    <div class="container">
-        <h1>HIVEN TECHNOLOGY LIMITED</h1>
-        <h2>Privacy Policy</h2>
-        
-        <div class="back-link">
-            <a href="../index.html">Back to Home</a>
+    <!-- Privacy Policy Section -->
+    <section class="py-20 bg-gray-50 pt-32">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Privacy Policy</h2>
+            <p class="text-center text-gray-500 mb-12">Last Updated: March 4, 2026</p>
+            
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8">
+                <div class="content">
+                    <p class="mb-6">MEGANLYNN ENTERPRISE ("we," "us," or "our") respects your privacy. This Privacy Policy explains how we collect, use, store, transfer, and disclose your personal data in connection with our mobile games and related services.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Purpose of Data Collection and Use</h3>
+                    <p class="mb-4">We collect and use your personal data for the following purposes:</p>
+                    <ol class="list-decimal pl-5 mb-6 space-y-2">
+                        <li>Provide our apps, verify purchases, and deliver player support.</li>
+                        <li>Operate, improve, and optimize our apps.</li>
+                        <li>Manage daily business operations.</li>
+                        <li>Optimize apps for users and devices, provide personalized in-game events, offers, and promotions.</li>
+                        <li>Verify identity and product/service entitlements.</li>
+                        <li>Maintain security and integrity of property, services, and technical assets.</li>
+                        <li>Personalize services and enhance user experience.</li>
+                        <li>Provide access to certain regions, features, and services.</li>
+                        <li>Communicate updates, security alerts, and support messages.</li>
+                        <li>Prevent illegal activities (including cheating, fraud) and protect players.</li>
+                        <li>Ensure internal quality control.</li>
+                        <li>Comply with contractual and legal obligations.</li>
+                        <li>Provide customer support.</li>
+                        <li>Conduct research and data analysis.</li>
+                        <li>Other purposes as outlined in this Privacy Policy or as required/permitted by law.</li>
+                    </ol>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Categories of Personal Data</h3>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Advertising-related:</h4>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>Device advertising identifiers (IDFA, AAID) and other non-personal info.</li>
+                        <li>Gameplay and interaction data.</li>
+                        <li>Age, country/region, gender.</li>
+                        <li>Data from third-party marketing partners with your consent.</li>
+                    </ul>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Analytics Data:</h4>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>Device OS, resolution, language, timezone, IP address, app version.</li>
+                    </ul>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Game Data:</h4>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>In-app purchase records, subscription data, player progress, IP-based location, Apple ID, Facebook ID & nickname.</li>
+                    </ul>
+                    
+                    <h4 class="text-lg font-semibold mb-2">Cookies & Similar Technologies:</h4>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>Advertising identifiers, cookies, tracking pixels.</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Legal Basis for Processing</h3>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>Contract necessity – To provide the app, customer support, and social features.</li>
+                        <li>Legal obligation – To comply with laws (e.g., tax records, lawful data requests).</li>
+                        <li>Legitimate interest – For marketing, analytics, research, optimization (without harming your privacy).</li>
+                        <li>Consent – For certain advertising-related data collection, which you may withdraw at any time.</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Storage, Transfer & Disclosure</h3>
+                    <p class="mb-4"><strong>Security:</strong> We use industry-standard security measures, but no method of transmission over the internet is 100% secure.</p>
+                    <p class="mb-4"><strong>Disclosure:</strong> We may disclose personal data:</p>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>As required by law, government, or courts.</li>
+                        <li>To service providers or subcontractors.</li>
+                        <li>To group companies or international partners.</li>
+                        <li>During investment, merger, acquisition, or asset sale.</li>
+                    </ul>
+                    <p class="mb-4"><strong>Cross-border Transfer:</strong> Your data may be transferred internationally, safeguarded by standard contractual clauses or equivalent protections.</p>
+                    <p class="mb-6"><strong>Retention:</strong> Data is retained for as long as your account is active or as necessary to provide services.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Your Rights</h3>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>Access, correct, or delete your personal data.</li>
+                        <li>Restrict or object to processing.</li>
+                        <li>Data portability.</li>
+                        <li>Lodge a complaint.</li>
+                        <li>Withdraw consent (without affecting prior lawful processing).</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Automatically Collected Information</h3>
+                    <p class="mb-6">May include analytics info, device identifiers, location data, commercial info (purchase history, etc.).</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Contact Us</h3>
+                    <p class="mb-4">MEGANLYNN ENTERPRISE</p>
+                    <p class="mb-4">Email: <a href="mailto:support@meganlynngame.top" class="text-primary hover:underline">support@meganlynngame.top</a></p>
+                    <p class="mb-6">Address: NO 10 JALAN RP 4/10, TAMAN RAWANG PERDANA, 48000 RAWANG, SELANGOR, MALAYSIA</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Eligibility</h3>
+                    <p class="mb-6">You must be at least 13 years old (or the minimum legal age in your country) to use our Services. If you are under the legal age, you must have parental or legal guardian consent.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Virtual Items and In-App Purchases</h3>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>Virtual currency, items, or other digital content in the Services have no real-world monetary value and cannot be exchanged for real money, goods, or services outside the game.</li>
+                        <li>All purchases are final and non-refundable, except where required by applicable law or platform rules (e.g., App Store, Google Play).</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">User Conduct</h3>
+                    <p class="mb-4">You agree not to:</p>
+                    <ul class="list-disc pl-5 mb-6 space-y-2">
+                        <li>Use cheats, automation software, bots, hacks, or any unauthorized third-party software.</li>
+                        <li>Exploit bugs or glitches for personal gain.</li>
+                        <li>Harass, abuse, or harm other players.</li>
+                        <li>Engage in fraudulent transactions or account sharing.</li>
+                    </ul>
+                    <p class="mb-6">Violation may result in suspension or permanent termination of your account.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Account and Security</h3>
+                    <p class="mb-6">You are responsible for maintaining the confidentiality of your account credentials and for all activities under your account. We are not liable for losses resulting from unauthorized use.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Intellectual Property</h3>
+                    <p class="mb-6">All rights, title, and interest in the Services (including but not limited to software, art, graphics, music, and trademarks) belong to MEGANLYNN ENTERPRISE or its licensors.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Updates and Changes</h3>
+                    <p class="mb-6">We may update the Services, including adding or removing features, at any time. We may also revise these Terms from time to time, with updated versions posted in the game or on our website.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Termination</h3>
+                    <p class="mb-6">We may suspend or terminate your access if you breach these Terms or engage in unlawful activities.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Disclaimers and Limitation of Liability</h3>
+                    <p class="mb-6">Our Services are provided "as is" without warranties of any kind. To the maximum extent permitted by law, we are not liable for any indirect, incidental, or consequential damages.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Governing Law</h3>
+                    <p class="mb-6">These Terms are governed by the laws of Singapore, without regard to conflict of law provisions.</p>
+                    
+                    <h3 class="text-xl font-bold mb-4 mt-8">Contact Us</h3>
+                    <p class="mb-4">MEGANLYNN ENTERPRISE</p>
+                    <p class="mb-4">Email: <a href="mailto:support@meganlynngame.top" class="text-primary hover:underline">support@meganlynngame.top</a></p>
+                    <p class="mb-6">Address: NO 10 JALAN RP 4/10, TAMAN RAWANG PERDANA, 48000 RAWANG, SELANGOR, MALAYSIA</p>
+                </div>
+                
+                <div class="mt-8 text-center text-gray-600">
+                    <p>&copy; 2025 MEGANLYNN ENTERPRISE. All rights reserved.</p>
+                    <p class="mt-2">Contact: <a href="mailto:support@meganlynngame.top" class="text-primary hover:underline">support@meganlynngame.top</a></p>
+                </div>
+            </div>
         </div>
-        
-        <div class="content">
-            <h3>1. Introduction</h3>
-            <p>Welcome to the games and services provided by HIVEN TECHNOLOGY LIMITED. We value your privacy and are committed to protecting your personal information. This Privacy Policy (hereinafter referred to as "Policy") explains how we collect, use, store, and share your personal information, as well as your rights regarding your personal information.</p>
-            <p>By accessing or using our services, you agree to the processing of your personal information in accordance with this Policy. If you do not agree to any part of this Policy, you should immediately stop using our services.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="index.html" class="text-2xl font-bold text-white">meganlynngame</a>
+                    <p class="mt-2 text-gray-400">Where Imagination Meets Innovation</p>
+                </div>
+            </div>
             
-            <h3>2. Information We Collect</h3>
-            <p>2.1 Personal Information: When you use our services, we may collect personal information you provide, such as:</p>
-            <ul>
-                <li>Your device information, such as device model, operating system version, and device identifiers</li>
-                <li>Your game progress and preference settings</li>
-            </ul>
+            <hr class="border-gray-800 my-8">
             
-            <p>2.2 Non-Personal Information: We may also collect non-personal information, such as:</p>
-            <ul>
-                <li>How and how often you use our services</li>
-                <li>The pages and features you access</li>
-                <li>Your IP address, browser type, and language</li>
-                <li>Your geolocation information (if you allow)</li>
-            </ul>
-            
-            <h3>3. How We Use Information</h3>
-            <p>We use the collected information for the following purposes:</p>
-            <ul>
-                <li>Provide, maintain, and improve our services</li>
-                <li>Process your account registration and login</li>
-                <li>Process your purchases and payments</li>
-                <li>Send you service-related notifications and updates</li>
-                <li>Personalize your gaming experience</li>
-                <li>Analyze and understand user behavior to improve our services</li>
-                <li>Prevent fraud and protect the security of our services</li>
-                <li>Comply with legal and regulatory requirements</li>
-            </ul>
-            
-            <h3>4. Information Sharing</h3>
-            <p>4.1 We do not sell your personal information to third parties.</p>
-            <p>4.2 We may share your information in the following circumstances:</p>
-            <ul>
-                <li>With our affiliated companies and service providers who need access to your information to help us provide services</li>
-                <li>When we believe disclosure is necessary to comply with laws and regulations, respond to legal processes, or protect our rights, property, or safety</li>
-                <li>In the case of mergers, acquisitions, asset sales, or other business transfers</li>
-                <li>With your explicit consent</li>
-            </ul>
-            
-            <h3>5. Information Protection</h3>
-            <p>We take reasonable technical and organizational measures to protect your personal information from unauthorized access, use, disclosure, modification, or destruction. These measures include:</p>
-            <ul>
-                <li>Using encryption technology to protect sensitive information</li>
-                <li>Restricting access rights to personal information</li>
-                <li>Conducting regular security audits and assessments</li>
-                <li>Training employees on data protection best practices</li>
-            </ul>
-            <p>However, please note that no security measure is absolutely secure, and we cannot guarantee that your personal information will not be accessed or used without authorization.</p>
-            
-            <h3>6. Your Rights</h3>
-            <p>Under applicable laws and regulations, you may have the following rights regarding your personal information:</p>
-            <ul>
-                <li>Access your personal information</li>
-                <li>Correct inaccurate personal information</li>
-                <li>Delete your personal information</li>
-                <li>Restrict our processing of your personal information</li>
-                <li>Data portability right, i.e., obtain a copy of your personal information</li>
-                <li>Object to our processing of your personal information</li>
-                <li>Withdraw your consent (if we process your personal information based on your consent)</li>
-            </ul>
-            <p>If you wish to exercise these rights, please contact us through the contact information provided at the end of this Policy.</p>
-            
-            <h3>7. Children's Privacy</h3>
-            <p>Our services are not directed at children under the age of 13. We do not intentionally collect personal information from children under the age of 13. If we discover that we have collected personal information from a child under the age of 13, we will immediately delete such information. If you are a parent or guardian and you believe your child has provided personal information to us, please contact us through the contact information provided at the end of this Policy.</p>
-            
-            <h3>8. Changes to This Privacy Policy</h3>
-            <p>We may modify this Policy from time to time. The modified Policy will be published on our website, replacing the original Policy. The modified Policy will take effect from the date of publication.</p>
-            <p>Your continued use of our services constitutes your acceptance of the modified Policy. If you do not accept the modified Policy, you should immediately stop using our services.</p>
-            
-            <h3>9. Contact Information</h3>
-            <p>If you have any questions or suggestions about this Policy, or wish to exercise your rights, please contact us through the following:</p>
-            <p>Email: <a href="mailto:play@free666game.top">play@free666game.top</a></p>
+            <div class="text-center text-gray-400">
+                <p>&copy; 2025 meganlynngame. All rights reserved.</p>
+            </div>
         </div>
-        
-        <div class="copyright">
-            &copy; 2025 HIVEN TECHNOLOGY LIMITED. All rights reserved.
-        </div>
-        <div class="contact-email">
-            Contact: <a href="mailto:play@free666game.top">play@free666game.top</a>
-        </div>
-    </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 
 </html>
